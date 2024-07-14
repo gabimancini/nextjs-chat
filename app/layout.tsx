@@ -7,6 +7,8 @@ import { TailwindIndicator } from '@/components/tailwind-indicator'
 import { Providers } from '@/components/providers'
 import { Header } from '@/components/header'
 import { Toaster } from '@/components/ui/sonner'
+import BarCode from '@/components/barCode/barCode';
+
 
 export const metadata = {
   metadataBase: process.env.VERCEL_URL
@@ -54,7 +56,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           <div className="flex flex-col min-h-screen">
             <Header />
-            <main className="flex flex-col flex-1 bg-muted/50">{children}</main>
+            <main className="flex flex-col align-center flex-1 bg-muted/50">
+              <div className="flex flex-col justify-center bg-muted/50">
+                <h2>Scanea el código</h2>
+
+                <BarCode />
+              </div>
+              {children}
+            </main>
           </div>
           <TailwindIndicator />
         </Providers>
